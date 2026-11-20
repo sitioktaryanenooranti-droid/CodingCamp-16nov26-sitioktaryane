@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard</title>
+    <meta name="description" content="A clean personal dashboard with greeting, focus timer, to-do list, and quick links.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ============ HEADER: Greeting + Theme Toggle ============ -->
+    <header class="header">
+        <div class="greeting-wrap">
+            <h1 class="greeting">
+                <span id="greetingText">Hello</span>, <span id="nameDisplay" class="name-display" title="Click to change your name">Friend</span>!
+            </h1>
+            <p id="datetime" class="datetime"></p>
+        </div>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+            <span class="theme-icon">🌙</span>
+        </button>
+    </header>
+
+    <!-- ============ MAIN DASHBOARD ============ -->
+    <main class="dashboard">
+
+        <!-- Focus Timer -->
+        <section class="card timer-card">
+            <h2 class="card-title">⏱️ Focus Timer</h2>
+            <div id="timerDisplay" class="timer-display">25:00</div>
+            <div class="timer-controls">
+                <button id="startBtn" class="btn btn-primary">Start</button>
+                <button id="stopBtn" class="btn btn-secondary">Stop</button>
+                <button id="resetBtn" class="btn btn-ghost">Reset</button>
+            </div>
+            <p id="timerStatus" class="timer-status"></p>
+        </section>
+
+        <!-- To-Do List -->
+        <section class="card todo-card">
+            <h2 class="card-title">📝 To-Do List</h2>
+            <form id="taskForm" class="todo-form">
+                <input type="text" id="taskInput" class="input" placeholder="What needs to be done?" maxlength="120" autocomplete="off">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+            <div class="todo-toolbar">
+                <label for="sortSelect" class="toolbar-label">Sort:</label>
+                <select id="sortSelect" class="select">
+                    <option value="default">Newest first</option>
+                    <option value="az">Alphabetical (A→Z)</option>
+                    <option value="za">Alphabetical (Z→A)</option>
+                    <option value="pending">Pending first</option>
+                    <option value="completed">Completed first</option>
+                </select>
+                <span id="taskCount" class="task-count"></span>
+            </div>
+            <ul id="taskList" class="task-list"></ul>
+            <p id="emptyTasks" class="empty-state">No tasks yet. Add one above! ✨</p>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="card links-card">
+            <h2 class="card-title">🔗 Quick Links</h2>
+            <form id="linkForm" class="link-form">
+                <input type="text" id="linkName" class="input" placeholder="Name (e.g. Google)" maxlength="40" autocomplete="off">
+                <input type="text" id="linkUrl" class="input" placeholder="URL (e.g. google.com)" maxlength="200" autocomplete="off">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+            <div id="linkList" class="link-list"></div>
+            <p id="emptyLinks" class="empty-state">No quick links yet. Add one above!</p>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <p>Built with HTML, CSS &amp; Vanilla JavaScript · Data saved locally in your browser</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
